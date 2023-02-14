@@ -1,4 +1,5 @@
 import React from "react";
+import Star from "./Star"
 /*
 export default function App() {
 
@@ -69,11 +70,7 @@ export default function App() {
           className="card--image"
         />
         <div className="card--info">
-          <img
-            src={starIcon}
-            className="card--favorite"
-            onClick={toggleFavorite}
-          />
+          <Star isFilled={contact.isFavorite}/>
           <h2 className="card--name">
             {contact.firstName} {contact.lastName}
           </h2>
