@@ -1,5 +1,39 @@
-import React from "react";
+import {useState} from "react";
 
+
+// controlled vs uncontrolled forms
+
+function App(){
+  const [name, setName] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setName("")
+    console.log("Form submitted!");
+  };
+  return(
+    <div className = "App">
+    <form onSubmit={handleSubmit}>
+      <fieldset>
+        <div className="Field">
+          <label htmlFor="name" >Name:</label>
+          <input type="text" 
+          id="name"
+            placeholder="Name"
+            name="name"
+            value={name}
+            onChange={(e)=> setName(e.target.value)}
+          />
+        </div>
+        <button disabled={!name} type="submit">Submit</button>
+      </fieldset>
+    </form>
+
+    </div>
+  )
+}
+
+export default App
+/*
 export default function App() {
   const [formData, setFormData] = React.useState({
     email: "",
@@ -8,21 +42,21 @@ export default function App() {
     joinedNewsletter: true,
   });
 
-  /**
-   * Challenge: Connect the form to local state
-   *
-   * 1. Create a state object to store the 4 values we need to save.
-   * 2. Create a single handleChange function that can
-   *    manage the state of all the inputs and set it up
-   *    correctly
-   * 3. When the user clicks "Sign up", check if the
-   *    password & confirmation match each other. If
-   *    so, log "Successfully signed up" to the console.
-   *    If not, log "passwords do not match" to the console.
-   * 4. Also when submitting the form, if the person checked
-   *    the "newsletter" checkbox, log "Thanks for signing
-   *    up for our newsletter!" to the console.
-   */
+  
+  //  * Challenge: Connect the form to local state
+  //  *
+  //  * 1. Create a state object to store the 4 values we need to save.
+  //  * 2. Create a single handleChange function that can
+  //  *    manage the state of all the inputs and set it up
+  //  *    correctly
+  //  * 3. When the user clicks "Sign up", check if the
+  //  *    password & confirmation match each other. If
+  //  *    so, log "Successfully signed up" to the console.
+  //  *    If not, log "passwords do not match" to the console.
+  //  * 4. Also when submitting the form, if the person checked
+  //  *    the "newsletter" checkbox, log "Thanks for signing
+  //  *    up for our newsletter!" to the console.
+   
 
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
@@ -89,3 +123,5 @@ export default function App() {
     </div>
   );
 }
+
+*/
